@@ -3,15 +3,15 @@ const cors = require("cors");
 require("dotenv").config();
 
 // PHOTO
-const { FetchCategoryData } = require("./PHOTO API/FetchCatData");
+const { fetchCaptureLensCategories } = require("./PHOTO API/FetchCatData");
 const { AddCategory } = require("./PHOTO API/AddCategory");
 const { AddPackages } = require("./PHOTO API/AddPackage");
-const { FetchPackageData } = require("./PHOTO API/FetchPackData");
+const { fetchCaptureLensPackages } = require("./PHOTO API/FetchPackData");
 const { AddContact } = require("./PHOTO API/AddContact");
-const { FetchContactData } = require("./PHOTO API/FetchContactData");
+const { fetchCaptureLensontact } = require("./PHOTO API/FetchContactData");
 const { FetchSpecPackageData } = require("./PHOTO API/FetchSpecPackData");
 const { AddInquiry } = require("./PHOTO API/AddInquiry");
-const { FetchInqData } = require("./PHOTO API/FetchInqData");
+const { fetchCaptureLensInquiries } = require("./PHOTO API/FetchInqData");
 // SALON
 const { AddService } = require("./SALON API/AddService");
 const { AddPackage } = require("./SALON API/AddSalonPackage");
@@ -73,10 +73,10 @@ app.post("/addcontact", AddContact);
 app.post("/addinquiry", AddInquiry);
 
 // Fetch API
-app.get("/fetchcatdata", FetchCategoryData);
-app.get("/fetchpackdata", FetchPackageData);
-app.get("/fetchinqdata", FetchInqData),
-  app.get("/fetchcontactdata", FetchContactData);
+app.get("/fetchCaptureLensCategories", fetchCaptureLensCategories);
+app.get("/fetchCaptureLensPackages", fetchCaptureLensPackages);
+app.get("/fetchCaptureLensInquiries", fetchCaptureLensInquiries),
+  app.get("/fetchCaptureLensontact", fetchCaptureLensontact);
 app.post("/fetchspecpackdata", FetchSpecPackageData);
 
 // SALON API BELOW

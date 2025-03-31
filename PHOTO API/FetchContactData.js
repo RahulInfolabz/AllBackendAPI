@@ -1,7 +1,7 @@
 const ConnectDB = require('../DB/db_connect');
 
 
-async function FetchContactData(req, res) {
+async function fetchCaptureLensontact(req, res) {
     try {
         const db = await ConnectDB();
         console.log(db);
@@ -23,4 +23,4 @@ async function FetchContactData(req, res) {
 }
 
 
-module.exports = {FetchContactData};
+module.exports = {fetchCaptureLensontact};

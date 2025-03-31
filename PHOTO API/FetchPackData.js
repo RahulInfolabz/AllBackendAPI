@@ -1,26 +1,24 @@
-const ConnectDB = require('../DB/db_connect');
+const ConnectDB = require("../DB/db_connect");
 
+async function fetchCaptureLensPackages(req, res) {
+  try {
+    const db = await ConnectDB();
+    console.log(db);
+    const collection = db.collection("Packages");
+    const sensordata = await collection.find().toArray();
 
-async function FetchPackageData(req, res) {
-    try {
-        const db = await ConnectDB();
-        console.log(db);
-        const collection = db.collection("Packages");
-        const sensordata = await collection.find().toArray();
-        
-        if (sensordata.length == 0){
-        return res.status(404).json({message: "No Data Found"});
-        }
-        else{
-            console.log(sensordata.length);
-            return res.status(200).json({message: "Data Fetched",Data : sensordata})
-        }
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({message: error.message});
+    if (sensordata.length == 0) {
+      return res.status(404).json({ message: "No Data Found" });
+    } else {
+      console.log(sensordata.length);
+      return res
+        .status(200)
+        .json({ message: "Data Fetched", Data: sensordata });
     }
-    
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: error.message });
+  }
 }
 
-
-module.exports = {FetchPackageData};
+module.exports = { fetchCaptureLensPackages };

@@ -1,7 +1,7 @@
 const ConnectDB = require('../DB/db_connect');
 
 
-async function FetchInqData(req, res) {
+async function fetchCaptureLensInquiries(req, res) {
     try {
         const db = await ConnectDB();
         console.log(db);
@@ -23,4 +23,4 @@ async function FetchInqData(req, res) {
 }
 
 
-module.exports = {FetchInqData};
+module.exports = {fetchCaptureLensInquiries};
