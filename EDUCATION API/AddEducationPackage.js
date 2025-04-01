@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const ConnectDB = require('../DB/t_db_connect');
 
 async function AddEducationPackage(req, res) {
@@ -5,11 +6,15 @@ async function AddEducationPackage(req, res) {
         const db = await ConnectDB();
         const collection = db.collection("Packages");
 
-        const { name, classes, price, image } = req.body;
+        const { name, classId, price, image } = req.body;
 
         await collection.insertOne({
-            name,
-            classes,  // Array of class IDs
+            packageName,
+            classId: ObjectId.createFromHexString(classId),  // Array of class IDs
+            subjects,  
+            teachers, 
+            description,
+            maxStudent, 
             price,
             image,
             status: "Active",

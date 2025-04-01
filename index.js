@@ -12,6 +12,7 @@ const { fetchCaptureLensontact } = require("./PHOTO API/FetchContactData");
 const { FetchSpecPackageData } = require("./PHOTO API/FetchSpecPackData");
 const { AddInquiry } = require("./PHOTO API/AddInquiry");
 const { fetchCaptureLensInquiries } = require("./PHOTO API/FetchInqData");
+
 // SALON
 const { AddService } = require("./SALON API/AddService");
 const { AddPackage } = require("./SALON API/AddSalonPackage");
@@ -21,6 +22,7 @@ const { FetchServiceData } = require("./SALON API/FetchServiceData");
 const { FetchSalonContact } = require("./SALON API/FetchSalonContact");
 const { FetchSalonInq } = require("./SALON API/FetchSalonInq");
 const { FetchSalonPackage } = require("./SALON API/FetchSalonPack");
+
 // EDUCATION
 const { AddTeacher } = require("./EDUCATION API/AddEducationTeacher");
 const { AddSubject } = require("./EDUCATION API/AddEducationSubject");

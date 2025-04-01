@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const ConnectDB = require ('../DB/t_db_connect');
 
 async function AddSubject(req, res) {
@@ -5,12 +6,12 @@ async function AddSubject(req, res) {
         const db = await ConnectDB();
         const collection = db.collection("Subjects");
 
-        const { name, description, teachers, image } = req.body;
+        const { name, description, TeacherId, image } = req.body;
 
         await collection.insertOne({
             name,
             description,
-            teachers,  
+            teacherid: ObjectId.createFromHexString(TeacherId),  
             image,
             status: "Active",
             Timestamp: new Date(),

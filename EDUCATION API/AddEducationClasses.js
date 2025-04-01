@@ -5,13 +5,10 @@ async function AddClass(req, res) {
         const db = await ConnectDB();
         const collection = db.collection("Classes");
 
-        const { grade, subjects, teachers, price, image } = req.body;
+        const { grade,  image } = req.body;
 
         await collection.insertOne({
             grade,
-            subjects,  
-            teachers,  
-            price,
             image,
             status: "Active",
             timestamp: new Date()
