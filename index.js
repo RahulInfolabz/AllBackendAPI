@@ -67,6 +67,19 @@ app.use(express.urlencoded({ extended: false }));
 const port = 8100;
 app.use(cors());
 
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://localhost:5173",
+      "http://localhost:5174",
+    ], // Allowed frontend URLs
+    credentials: true, // Allow cookies and sessions to be shared across origins
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+  })
+);
+
 // PHOTO API BELOW
 // Insert API
 app.post("/addcategoty", AddCategory);
@@ -106,7 +119,7 @@ app.get("/packages", FetchEducationPackages);
 app.get("/subjects", FetchEducationSubjects);
 
 // Insert API
-app.post("/addteaher", AddTeacher);
+app.post("/addteacher", AddTeacher);
 app.post("/addsubject", AddSubject);
 app.post("/addclasses", AddClass);
 app.post("/addeducationpackage", AddEducationPackage);
