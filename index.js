@@ -59,6 +59,15 @@ const { AddServiceType } = require("./MOBILE API/AddServiceType");
 const { AddMobileService } = require("./MOBILE API/AddMobileServices");
 const { AddMobileContact } = require("./MOBILE API/AddMobileContact");
 const { AddMobileInquiry } = require("./MOBILE API/AddMobileInq");
+const {
+  FetchEducationPackagesByGrade,
+} = require("./EDUCATION API/FetchEducationPackagesByGrade");
+const {
+  FetchEducationPackageDetails,
+} = require("./EDUCATION API/FetchEducationPackageDetails");
+const {
+  FetchEducationTeacherDetails,
+} = require("./EDUCATION API/FetchEducationTeacherDetails");
 
 const app = express();
 app.use(express.json());
@@ -117,6 +126,9 @@ app.get("/classes", FetchEducationClasses);
 app.get("/teachers", FetchEducationTeachers);
 app.get("/packages", FetchEducationPackages);
 app.get("/subjects", FetchEducationSubjects);
+app.get("/fetchPackagesByGrade/:gradeId", FetchEducationPackagesByGrade);
+app.get("/fetchPackageDetails/:packageId", FetchEducationPackageDetails);
+app.get("/fetchTeacherDetails/:teacherId", FetchEducationTeacherDetails);
 
 // Insert API
 app.post("/addteacher", AddTeacher);
