@@ -126,9 +126,9 @@ app.get("/classes", FetchEducationClasses);
 app.get("/teachers", FetchEducationTeachers);
 app.get("/packages", FetchEducationPackages);
 app.get("/subjects", FetchEducationSubjects);
-app.get("/fetchPackagesByGrade/:gradeId", FetchEducationPackagesByGrade);
-app.get("/fetchPackageDetails/:packageId", FetchEducationPackageDetails);
-app.get("/fetchTeacherDetails/:teacherId", FetchEducationTeacherDetails);
+app.get("/classes/packages/:gradeId", FetchEducationPackagesByGrade);
+app.get("/packages/:packageId", FetchEducationPackageDetails);
+app.get("/teachers/:teacherId", FetchEducationTeacherDetails);
 
 // Insert API
 app.post("/addteacher", AddTeacher);
