@@ -6,7 +6,7 @@ async function AddEducationPackage(req, res) {
         const db = await ConnectDB();
         const collection = db.collection("Packages");
 
-        const { name, classId, price, image } = req.body;
+        const { packageName, classId, price, image } = req.body;
 
         await collection.insertOne({
             packageName,
