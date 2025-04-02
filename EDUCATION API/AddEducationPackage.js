@@ -9,7 +9,7 @@ async function AddEducationPackage(req, res) {
     // Destructuring all the required fields from the request body
     const {
       packageName,
-      gradeId,
+      classId,
       subjects,
       teachers,
       description,
@@ -31,12 +31,30 @@ async function AddEducationPackage(req, res) {
       languages,
     } = req.body;
 
+    // fetch class details
+    const collectionClass = db.collection("Classes");
+    const classDetails = await collectionClass.findOne({
+      _id: ObjectId.createFromHexString(classId),
+    });
+
+    // fetch teachers
+    const collectionTeachers = db.collection("Teachers");
+    const teacherObjects = await collectionTeachers
+      .find({
+        _id: {
+          $in: teachers.map((teacherId) =>
+            ObjectId.createFromHexString(teacherId)
+          ),
+        },
+      })
+      .toArray();
+
     // Insert data into the Packages collection
     await collection.insertOne({
       packageName,
-      gradeId: new ObjectId(gradeId), // Reference to the Grade collection
+      classDetails: classDetails,
       subjects,
-      teachers: teachers.map((teacherId) => new ObjectId(teacherId)), // Array of teacher references
+      teachers: teacherObjects, // Array of teacher references
       description,
       maxStudent,
       price,

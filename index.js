@@ -126,7 +126,7 @@ app.get("/classes", FetchEducationClasses);
 app.get("/teachers", FetchEducationTeachers);
 app.get("/packages", FetchEducationPackages);
 app.get("/subjects", FetchEducationSubjects);
-app.get("/classes/packages/:gradeId", FetchEducationPackagesByGrade);
+app.get("/classes/packages/:classId", FetchEducationPackagesByGrade);
 app.get("/packages/:packageId", FetchEducationPackageDetails);
 app.get("/teachers/:teacherId", FetchEducationTeacherDetails);
 

@@ -6,10 +6,10 @@ async function FetchEducationPackagesByGrade(req, res) {
     const db = await ConnectDB();
     const collection = db.collection("Packages");
 
-    const { gradeId } = req.params;
+    const { classId } = req.params;
 
     const data = await collection
-      .find({ gradeId: new ObjectId(gradeId) })
+      .find({ "classDetails._id": new ObjectId(classId) })
       .toArray();
 
     if (data.length == 0) {
