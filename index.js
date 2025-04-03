@@ -84,7 +84,7 @@ const { AddCLPackages } = require("./PHOTO API/addCLPackage");
 const { AddCLContact } = require("./PHOTO API/addCLContact");
 const { AddCLInquiry } = require("./PHOTO API/addCLInquiry");
 // FETCH
-const { fetchCLCategories } = require("./PHOTO API/FetchClCategories");
+const { fetchCLCategories } = require("./PHOTO API/FetchCLCategories");
 const { fetchCLPackages } = require("./PHOTO API/fetchCLPackages");
 const { fetchCLInquiries } = require("./PHOTO API/fetchCLInquiry");
 const { fetchCLContacts } = require("./PHOTO API/fetchCLContact");
