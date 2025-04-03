@@ -67,7 +67,7 @@ const { AddMobileContact } = require("./MOBILE API/AddMobileContact");
 const { AddMobileInquiry } = require("./MOBILE API/AddMobileInq");
 
 // FETCH
-const { fetchCLPackageDetails } = require("./PHOTO API/fetchCLpackageDetails");
+const { fetchCLPackageDetails } = require("./PHOTO API/fetchCLPackageDetails");
 
 const { fetchMobileServices } = require("./MOBILE API/FetchMobileServices");
 const { fetchMobileBrands } = require("./MOBILE API/FetchMobileBrands");
