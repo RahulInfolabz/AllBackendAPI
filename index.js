@@ -80,7 +80,7 @@ const { fetchMobileDetails } = require("./MOBILE API/FetchMobilesDetails");
 // PHOTO
 // ADD
 const { AddCLCategory } = require("./PHOTO API/addCLCategory");
-const { AddCLPackages } = require("./PHOTO API/AddCLPackage");
+const { AddCLPackages } = require("./PHOTO API/addCLPackage");
 const { AddCLContact } = require("./PHOTO API/addCLContact");
 const { AddCLInquiry } = require("./PHOTO API/addCLInquiry");
 // FETCH
