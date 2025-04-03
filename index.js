@@ -75,7 +75,7 @@ const {
   fetchMobileAccessories,
 } = require("./MOBILE API/FetchMoblieAccessories");
 const { fetchMobiles } = require("./MOBILE API/FetchMobiles");
-const { fetchMobileDetails } = require("./MOBILE API/fetchMobilesDetails");
+const { fetchMobileDetails } = require("./MOBILE API/FetchMobilesDetails");
 
 // PHOTO
 // ADD
