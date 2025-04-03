@@ -1,7 +1,7 @@
 const ConnectDB = require ('../DB/db_connect');
 
 
-async function AddContact(req,res) {
+async function AddCLContact(req,res) {
     try {
         const db = await ConnectDB()
         const collection = db.collection("Contact");
@@ -29,4 +29,4 @@ async function AddContact(req,res) {
 }
 
 
-module.exports = {AddContact};
+module.exports = {AddCLContact};

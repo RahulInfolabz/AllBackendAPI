@@ -2,7 +2,7 @@ const { ObjectId } = require('mongodb');
 const ConnectDB = require ('../DB/db_connect');
 
 
-async function AddInquiry(req,res) {
+async function AddCLInquiry(req,res) {
     try {
         const db = await ConnectDB()
         const collection = db.collection("Inquiry");
@@ -38,4 +38,4 @@ async function AddInquiry(req,res) {
 }
 
 
-module.exports = {AddInquiry};
+module.exports = {AddCLInquiry};

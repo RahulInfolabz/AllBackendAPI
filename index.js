@@ -3,15 +3,6 @@ const cors = require("cors");
 require("dotenv").config();
 
 // PHOTO
-const { fetchCaptureLensCategories } = require("./PHOTO API/FetchCatData");
-const { AddCategory } = require("./PHOTO API/AddCategory");
-const { AddPackages } = require("./PHOTO API/AddPackage");
-const { fetchCaptureLensPackages } = require("./PHOTO API/FetchPackData");
-const { AddContact } = require("./PHOTO API/AddContact");
-const { fetchCaptureLensontact } = require("./PHOTO API/FetchContactData");
-const { FetchSpecPackageData } = require("./PHOTO API/FetchSpecPackData");
-const { AddInquiry } = require("./PHOTO API/AddInquiry");
-const { fetchCaptureLensInquiries } = require("./PHOTO API/FetchInqData");
 
 // SALON
 const { AddService } = require("./SALON API/AddService");
@@ -68,6 +59,17 @@ const {
 const {
   FetchEducationTeacherDetails,
 } = require("./EDUCATION API/FetchEducationTeacherDetails");
+const { AddCLCategory } = require("./PHOTO API/addCLCategory");
+const { AddCLPackages } = require("./PHOTO API/AddCLPackage");
+const { AddCLContact } = require("./PHOTO API/addCLContact");
+const { AddCLInquiry } = require("./PHOTO API/addCLInquiry");
+const { fetchCLCategories } = require("./PHOTO API/FetchClCategories");
+const { fetchCLPackages } = require("./PHOTO API/fetchCLPackages");
+const { fetchCLInquiries } = require("./PHOTO API/fetchCLInquiry");
+const { fetchCLContacts } = require("./PHOTO API/fetchCLContact");
+const {
+  fetchCLCategoryPackages,
+} = require("./PHOTO API/FetchCLCategoryPackages");
 
 const app = express();
 app.use(express.json());
@@ -91,17 +93,18 @@ app.use(
 
 // PHOTO API BELOW
 // Insert API
-app.post("/addcategoty", AddCategory);
-app.post("/addpackage", AddPackages);
-app.post("/addcontact", AddContact);
-app.post("/addinquiry", AddInquiry);
+app.post("/addcategoty", AddCLCategory);
+app.post("/addpackage", AddCLPackages);
+app.post("/addcontact", AddCLContact);
+app.post("/addinquiry", AddCLInquiry);
 
 // Fetch API
-app.get("/fetchCaptureLensCategories", fetchCaptureLensCategories);
-app.get("/fetchCaptureLensPackages", fetchCaptureLensPackages);
-app.get("/fetchCaptureLensInquiries", fetchCaptureLensInquiries),
-  app.get("/fetchCaptureLensontact", fetchCaptureLensontact);
-app.post("/fetchspecpackdata", FetchSpecPackageData);
+app.get("/fetchCaptureLensCategories", fetchCLCategories);
+// app.get("fetchCaptureLensPackages/:package_id");
+app.get("/fetchCaptureLensPackages", fetchCLPackages);
+app.get("/fetchCaptureLensInquiries", fetchCLInquiries);
+app.get("/fetchCaptureLensontact", fetchCLContacts);
+app.post("/fetchCategoryPackages/:categoryId", fetchCLCategoryPackages);
 
 // SALON API BELOW
 

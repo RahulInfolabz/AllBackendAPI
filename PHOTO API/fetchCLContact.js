@@ -1,11 +1,11 @@
 const ConnectDB = require('../DB/db_connect');
 
 
-async function fetchCaptureLensInquiries(req, res) {
+async function fetchCLContacts(req, res) {
     try {
         const db = await ConnectDB();
         console.log(db);
-        const collection = db.collection("Inquiry");
+        const collection = db.collection("Contact");
         const sensordata = await collection.find().toArray();
         
         if (sensordata.length == 0){
@@ -23,4 +23,4 @@ async function fetchCaptureLensInquiries(req, res) {
 }
 
 
-module.exports = {fetchCaptureLensInquiries};
+module.exports = {fetchCLContacts};
