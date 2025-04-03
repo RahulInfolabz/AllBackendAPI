@@ -75,6 +75,8 @@ const { fetchMobileBrands } = require("./MOBILE API/FetchMobileBrands");
 const {
   fetchMobileAccessories,
 } = require("./MOBILE API/FetchMoblieAccessories");
+const { fetchMobiles } = require("./MOBILE API/FetchMobiles");
+const { fetchMobileDetails } = require("./MOBILE API/fetchMobilesDetails");
 
 const app = express();
 app.use(express.json());
@@ -168,8 +170,10 @@ app.post("/addmobilecontact", AddMobileContact);
 app.post("/addmobileinq", AddMobileInquiry);
 
 // fetch Api
-app.get("/fetchMobileServices", fetchMobileServices);
 app.get("/fetchMobileBrands", fetchMobileBrands);
+app.get("/fetchMobiles", fetchMobiles);
+app.get("/fetchMobilesDetails/:mobile_id", fetchMobileDetails);
+app.get("/fetchMobileServices", fetchMobileServices);
 app.get("/fetchMobileAccessories", fetchMobileAccessories);
 
 app.listen(port, () => {

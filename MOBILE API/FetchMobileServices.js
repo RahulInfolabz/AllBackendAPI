@@ -1,17 +1,17 @@
-const ConnectDB = require("../DB/db_connect");
+const ConnectDB = require("../DB/m_db_connect");
 
 async function fetchMobileServices(req, res) {
   try {
     const db = await ConnectDB();
     console.log(db);
     const collection = db.collection("Services");
-    const mobileBrands = await collection.find().toArray();
+    const services = await collection.find().toArray();
 
-    if (mobileBrands.length == 0) {
+    if (services.length == 0) {
       return res.status(404).json({ message: "No Data Found" });
     } else {
-      console.log(mobileBrands.length);
-      return res.status(200).json({ message: "Data Fetched", mobileBrands });
+      console.log(services.length);
+      return res.status(200).json({ message: "Data Fetched", services });
     }
   } catch (error) {
     console.log(error);

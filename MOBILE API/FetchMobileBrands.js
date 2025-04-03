@@ -1,9 +1,8 @@
-const ConnectDB = require("../DB/db_connect");
+const ConnectDB = require("../DB/m_db_connect");
 
 async function fetchMobileBrands(req, res) {
   try {
     const db = await ConnectDB();
-    console.log(db);
     const collection = db.collection("Brands");
     const mobileBrands = await collection.find().toArray();
 
