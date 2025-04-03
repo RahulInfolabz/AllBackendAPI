@@ -59,7 +59,7 @@ const {
   FetchEducationTeacherDetails,
 } = require("./EDUCATION API/FetchEducationTeacherDetails");
 const { AddCLCategory } = require("./PHOTO API/addCLCategory");
-const { AddCLPackages } = require("./PHOTO API/AddCLPackage");
+// const { AddCLPackages } = require("./PHOTO API/AddCLPackage");
 const { AddCLContact } = require("./PHOTO API/addCLContact");
 const { AddCLInquiry } = require("./PHOTO API/addCLInquiry");
 const { fetchCLCategories } = require("./PHOTO API/FetchClCategories");
@@ -101,7 +101,7 @@ app.use(
 // PHOTO API BELOW
 // Insert API
 app.post("/addcategoty", AddCLCategory);
-app.post("/addpackage", AddCLPackages);
+// app.post("/addpackage", AddCLPackages);
 app.post("/addcontact", AddCLContact);
 app.post("/addinquiry", AddCLInquiry);
 
