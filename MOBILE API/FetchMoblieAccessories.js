@@ -7,10 +7,10 @@ async function fetchMobileAccessories(req, res) {
     const collection = db.collection("MobileAccessories");
     const accessories = await collection.find().toArray();
 
-    if (mobileBrands.length == 0) {
+    if (accessories.length == 0) {
       return res.status(404).json({ message: "No Data Found" });
     } else {
-      console.log(mobileBrands.length);
+      console.log(accessories.length);
       return res.status(200).json({ message: "Data Fetched", accessories });
     }
   } catch (error) {
