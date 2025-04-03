@@ -92,11 +92,9 @@ const {
   fetchCLCategoryPackages,
 } = require("./PHOTO API/FetchCLCategoryPackages");
 
-
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 const port = 8100;
 app.use(cors());
 
