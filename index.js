@@ -70,6 +70,10 @@ const { fetchCLContacts } = require("./PHOTO API/fetchCLContact");
 const {
   fetchCLCategoryPackages,
 } = require("./PHOTO API/FetchCLCategoryPackages");
+const {
+  FetchCLPackageDetails,
+  fetchCLPackageDetails,
+} = require("./PHOTO API/fetchCLpackageDetails");
 
 const app = express();
 app.use(express.json());
@@ -100,7 +104,7 @@ app.post("/addinquiry", AddCLInquiry);
 
 // Fetch API
 app.get("/fetchCaptureLensCategories", fetchCLCategories);
-// app.get("fetchCaptureLensPackages/:package_id");
+app.get("/fetchCaptureLensPackages/:package_id", fetchCLPackageDetails);
 app.get("/fetchCaptureLensPackages", fetchCLPackages);
 app.get("/fetchCaptureLensInquiries", fetchCLInquiries);
 app.get("/fetchCaptureLensontact", fetchCLContacts);
