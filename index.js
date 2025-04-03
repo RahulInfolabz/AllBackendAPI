@@ -92,6 +92,7 @@ const {
   fetchCLCategoryPackages,
 } = require("./PHOTO API/FetchCLCategoryPackages");
 const { fetchMobilesByBrand } = require("./MOBILE API/FetchMobilesByBrand");
+const { fetchServicesByMobiles } = require("./MOBILE API/FetchServicesByMobile");
 
 const app = express();
 app.use(express.json());
@@ -189,6 +190,7 @@ app.get("/fetchMobilesDetails/:mobile_id", fetchMobileDetails);
 app.get("/fetchMobileServices", fetchMobileServices);
 app.get("/fetchMobileAccessories", fetchMobileAccessories);
 app.get("/fetchMobilesByBrand/:brand_id", fetchMobilesByBrand);
+app.get("/fetchServicesByMobile/:mobile_id", fetchServicesByMobiles);
 
 app.listen(port, () => {
   console.log("Server started on port", port);
