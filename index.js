@@ -104,7 +104,7 @@ app.get("/fetchCaptureLensCategories", fetchCLCategories);
 app.get("/fetchCaptureLensPackages", fetchCLPackages);
 app.get("/fetchCaptureLensInquiries", fetchCLInquiries);
 app.get("/fetchCaptureLensontact", fetchCLContacts);
-app.post("/fetchCategoryPackages/:categoryId", fetchCLCategoryPackages);
+app.post("/fetchCategoryPackages/:category_id", fetchCLCategoryPackages);
 
 // SALON API BELOW
 
