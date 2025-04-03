@@ -46,7 +46,6 @@ const { AddCarInquiry } = require("./CAR API/AddCarInq");
 const { AddMobileBrand } = require("./MOBILE API/AddMobileBrand");
 const { AddMobile } = require("./MOBILE API/AddMobileDetails");
 const { AddMobileAccessory } = require("./MOBILE API/AddMobileAccessory");
-const { AddServiceType } = require("./MOBILE API/AddServiceType");
 const { AddMobileService } = require("./MOBILE API/AddMobileServices");
 const { AddMobileContact } = require("./MOBILE API/AddMobileContact");
 const { AddMobileInquiry } = require("./MOBILE API/AddMobileInq");
@@ -70,10 +69,12 @@ const { fetchCLContacts } = require("./PHOTO API/fetchCLContact");
 const {
   fetchCLCategoryPackages,
 } = require("./PHOTO API/FetchCLCategoryPackages");
+const { fetchCLPackageDetails } = require("./PHOTO API/fetchCLpackageDetails");
+const { fetchMobileServices } = require("./MOBILE API/FetchMobileServices");
+const { fetchMobileBrands } = require("./MOBILE API/FetchMobileBrands");
 const {
-  FetchCLPackageDetails,
-  fetchCLPackageDetails,
-} = require("./PHOTO API/fetchCLpackageDetails");
+  fetchMobileAccessories,
+} = require("./MOBILE API/FetchMoblieAccessories");
 
 const app = express();
 app.use(express.json());
@@ -159,14 +160,17 @@ app.post("/addcarinq", AddCarInquiry);
 // MOBILE API BELOW
 // TESTING REQUIRED //
 // INSERT API
-
 app.post("/addmobilebrand", AddMobileBrand);
 app.post("/addmobiledetails", AddMobile);
 app.post("/addmobileaccessory", AddMobileAccessory);
-app.post("/addservicetype", AddServiceType);
 app.post("/addmobileservice", AddMobileService);
 app.post("/addmobilecontact", AddMobileContact);
 app.post("/addmobileinq", AddMobileInquiry);
+
+// fetch Api
+app.get("/fetchMobileServices", fetchMobileServices);
+app.get("/fetchMobileBrands", fetchMobileBrands);
+app.get("/fetchMobileAccessories", fetchMobileAccessories);
 
 app.listen(port, () => {
   console.log("Server started on port", port);
