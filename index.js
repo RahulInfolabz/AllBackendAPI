@@ -2,25 +2,39 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
-// PHOTO
-
 // SALON
 const { AddService } = require("./SALON API/AddService");
 const { AddPackage } = require("./SALON API/AddSalonPackage");
 const { AddSalonContact } = require("./SALON API/AddSalonContact");
 const { AddSalonInquiry } = require("./SALON API/AddSalonInquiry");
+
+// FETCH
 const { FetchServiceData } = require("./SALON API/FetchServiceData");
 const { FetchSalonContact } = require("./SALON API/FetchSalonContact");
 const { FetchSalonInq } = require("./SALON API/FetchSalonInq");
 const { FetchSalonPackage } = require("./SALON API/FetchSalonPack");
 
 // EDUCATION
+
+// ADD
 const { AddTeacher } = require("./EDUCATION API/AddEducationTeacher");
 const { AddSubject } = require("./EDUCATION API/AddEducationSubject");
 const { AddClass } = require("./EDUCATION API/AddEducationClasses");
 const { AddEducationPackage } = require("./EDUCATION API/AddEducationPackage");
 const { AddEducationContact } = require("./EDUCATION API/AddEducationContact");
 const { AddEducationInquiry } = require("./EDUCATION API/AddEducationInq");
+
+// FETCH
+const {
+  FetchEducationPackagesByGrade,
+} = require("./EDUCATION API/FetchEducationPackagesByGrade");
+const {
+  FetchEducationPackageDetails,
+} = require("./EDUCATION API/FetchEducationPackageDetails");
+const {
+  FetchEducationTeacherDetails,
+} = require("./EDUCATION API/FetchEducationTeacherDetails");
+
 const {
   FetchEducationClasses,
 } = require("./EDUCATION API/FetchEducationClasses");
@@ -42,34 +56,19 @@ const { AddAccessoryBrand } = require("./CAR API/AddAccessoryBrand");
 const { AddAccessory } = require("./CAR API/AddAccessory");
 const { AddCarContact } = require("./CAR API/AddCarContact");
 const { AddCarInquiry } = require("./CAR API/AddCarInq");
+
 // MOBILE
+// ADD
 const { AddMobileBrand } = require("./MOBILE API/AddMobileBrand");
 const { AddMobile } = require("./MOBILE API/AddMobileDetails");
 const { AddMobileAccessory } = require("./MOBILE API/AddMobileAccessory");
 const { AddMobileService } = require("./MOBILE API/AddMobileServices");
 const { AddMobileContact } = require("./MOBILE API/AddMobileContact");
 const { AddMobileInquiry } = require("./MOBILE API/AddMobileInq");
-const {
-  FetchEducationPackagesByGrade,
-} = require("./EDUCATION API/FetchEducationPackagesByGrade");
-const {
-  FetchEducationPackageDetails,
-} = require("./EDUCATION API/FetchEducationPackageDetails");
-const {
-  FetchEducationTeacherDetails,
-} = require("./EDUCATION API/FetchEducationTeacherDetails");
-const { AddCLCategory } = require("./PHOTO API/addCLCategory");
-// const { AddCLPackages } = require("./PHOTO API/AddCLPackage");
-const { AddCLContact } = require("./PHOTO API/addCLContact");
-const { AddCLInquiry } = require("./PHOTO API/addCLInquiry");
-const { fetchCLCategories } = require("./PHOTO API/FetchClCategories");
-const { fetchCLPackages } = require("./PHOTO API/fetchCLPackages");
-const { fetchCLInquiries } = require("./PHOTO API/fetchCLInquiry");
-const { fetchCLContacts } = require("./PHOTO API/fetchCLContact");
-const {
-  fetchCLCategoryPackages,
-} = require("./PHOTO API/FetchCLCategoryPackages");
+
+// FETCH
 const { fetchCLPackageDetails } = require("./PHOTO API/fetchCLpackageDetails");
+
 const { fetchMobileServices } = require("./MOBILE API/FetchMobileServices");
 const { fetchMobileBrands } = require("./MOBILE API/FetchMobileBrands");
 const {
@@ -77,6 +76,22 @@ const {
 } = require("./MOBILE API/FetchMoblieAccessories");
 const { fetchMobiles } = require("./MOBILE API/FetchMobiles");
 const { fetchMobileDetails } = require("./MOBILE API/fetchMobilesDetails");
+
+// PHOTO
+// ADD
+const { AddCLCategory } = require("./PHOTO API/addCLCategory");
+const { AddCLPackages } = require("./PHOTO API/AddCLPackage");
+const { AddCLContact } = require("./PHOTO API/addCLContact");
+const { AddCLInquiry } = require("./PHOTO API/addCLInquiry");
+// FETCH
+const { fetchCLCategories } = require("./PHOTO API/FetchClCategories");
+const { fetchCLPackages } = require("./PHOTO API/fetchCLPackages");
+const { fetchCLInquiries } = require("./PHOTO API/fetchCLInquiry");
+const { fetchCLContacts } = require("./PHOTO API/fetchCLContact");
+const {
+  fetchCLCategoryPackages,
+} = require("./PHOTO API/FetchCLCategoryPackages");
+
 
 const app = express();
 app.use(express.json());
@@ -101,7 +116,7 @@ app.use(
 // PHOTO API BELOW
 // Insert API
 app.post("/addcategoty", AddCLCategory);
-// app.post("/addpackage", AddCLPackages);
+app.post("/addpackage", AddCLPackages);
 app.post("/addcontact", AddCLContact);
 app.post("/addinquiry", AddCLInquiry);
 
@@ -122,7 +137,6 @@ app.post("/addsaloncontact", AddSalonContact);
 app.post("/addsaloninquiry", AddSalonInquiry);
 
 // Fetch API
-
 app.get("/salonservices", FetchServiceData);
 app.get("/saloncontact", FetchSalonContact);
 app.get("/saloninquiry", FetchSalonInq);
