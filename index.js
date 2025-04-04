@@ -47,6 +47,9 @@ const {
 const {
   FetchEducationSubjects,
 } = require("./EDUCATION API/FetchEducationSucjects");
+const {
+  SearchEducationPackages,
+} = require("./EDUCATION API/SearchEducationPackages");
 
 // CAR
 const { AddBrand } = require("./CAR API/AddCarBrand");
@@ -92,7 +95,9 @@ const {
   fetchCLCategoryPackages,
 } = require("./PHOTO API/FetchCLCategoryPackages");
 const { fetchMobilesByBrand } = require("./MOBILE API/FetchMobilesByBrand");
-const { fetchServicesByMobiles } = require("./MOBILE API/FetchServicesByMobile");
+const {
+  fetchServicesByMobiles,
+} = require("./MOBILE API/FetchServicesByMobile");
 
 const app = express();
 app.use(express.json());
@@ -153,6 +158,7 @@ app.get("/subjects", FetchEducationSubjects);
 app.get("/classes/packages/:classId", FetchEducationPackagesByGrade);
 app.get("/packages/:packageId", FetchEducationPackageDetails);
 app.get("/teachers/:teacherId", FetchEducationTeacherDetails);
+app.get("/searchpackages", SearchEducationPackages);
 
 // Insert API
 app.post("/addteacher", AddTeacher);
