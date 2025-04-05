@@ -5,14 +5,20 @@ async function AddService(req, res) {
     const db = await ConnectDB();
     const collection = db.collection("Service");
 
-    const { name, description, image } = req.body;
+    const { name, category, description, gender, image } = req.body;
+    console.log(name);
+    console.log(category);
+    console.log(description);
+    console.log(gender);
+    console.log(image);
 
     await collection.insertOne({
       name,
+      category,
       description,
+      gender,
       image,
       status: "Active",
-      timestamp: new Date(),
     });
 
     return res.status(200).json({ message: "Service Added" });

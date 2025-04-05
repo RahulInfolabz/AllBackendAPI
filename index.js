@@ -98,6 +98,12 @@ const { fetchMobilesByBrand } = require("./MOBILE API/FetchMobilesByBrand");
 const {
   fetchServicesByMobiles,
 } = require("./MOBILE API/FetchServicesByMobile");
+const {
+  FetchSalonPackageDetails,
+} = require("./SALON API/FetchSalonPackageDetails");
+const {
+  FetchSalonPackagesBySerivce,
+} = require("./SALON API/FetchPackagesByService");
 
 const app = express();
 app.use(express.json());
@@ -146,6 +152,8 @@ app.get("/salonservices", FetchServiceData);
 app.get("/saloncontact", FetchSalonContact);
 app.get("/saloninquiry", FetchSalonInq);
 app.get("/salonpackages", FetchSalonPackage);
+app.get("/salonpackages/:packageId", FetchSalonPackageDetails);
+app.get("/salonpackagesbyserivces/:serviceId", FetchSalonPackagesBySerivce);
 
 // EDUCATION API BELOW
 // TESTING REQUIRED //
