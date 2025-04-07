@@ -192,8 +192,7 @@ app.post("/addcarinq", AddCarInquiry);
 // Fetch Car Accessories
 app.get("/fetchCarBrands", FetchCarBrands);
 app.get("/fetchCarsByBrands/:brandId", FetchCarsByBrands);
-app.get("/fetchAccessoriesByCar/:carId",  FetchAccessoriesByCars)
-
+app.get("/fetchAccessoriesByCar/:carId", FetchAccessoriesByCars);
 
 // MOBILE API BELOW
 // TESTING REQUIRED //
