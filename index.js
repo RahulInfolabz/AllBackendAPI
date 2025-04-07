@@ -199,6 +199,7 @@ app.post("/addmobilecontact", AddMobileContact);
 app.post("/addmobileinq", AddMobileInquiry);
 app.post("/storeMobileContactInquiry", AddContactInquiry);
 
+
 // fetch Api
 app.get("/fetchMobileBrands", fetchMobileBrands);
 app.get("/fetchMobiles", fetchMobiles);
