@@ -55,7 +55,6 @@ const {
 const { AddBrand } = require("./CAR API/AddCarBrand");
 const { AddCar } = require("./CAR API/AddCar");
 const { AddPartType } = require("./CAR API/AddPartDetails");
-const { AddAccessoryBrand } = require("./CAR API/AddAccessoryBrand");
 const { AddAccessory } = require("./CAR API/AddAccessory");
 const { AddCarContact } = require("./CAR API/AddCarContact");
 const { AddCarInquiry } = require("./CAR API/AddCarInq");
@@ -105,6 +104,9 @@ const {
   FetchSalonPackagesBySerivce,
 } = require("./SALON API/FetchPackagesByService");
 const { AddContactInquiry } = require("./MOBILE API/AddContactUsInquiry");
+const { FetchCarsByBrands } = require("./CAR API/FetchCarsByBrands");
+const { FetchCarBrands } = require("./CAR API/FetchCarBrands");
+const { FetchAccessoriesByCars } = require("./CAR API/FetchAccessoriesByCar");
 
 const app = express();
 app.use(express.json());
@@ -183,10 +185,15 @@ app.post("/addeducationinq", AddEducationInquiry);
 app.post("/addcarbrand", AddBrand);
 app.post("/addcar", AddCar);
 app.post("/addpartdetail", AddPartType);
-app.post("/addaccessorybrand", AddAccessoryBrand);
 app.post("/addaccessory", AddAccessory);
 app.post("/addcarcontactus", AddCarContact);
 app.post("/addcarinq", AddCarInquiry);
+
+// Fetch Car Accessories
+app.get("/fetchCarBrands", FetchCarBrands);
+app.get("/fetchCarsByBrands/:brandId", FetchCarsByBrands);
+app.get("/fetchAccessoriesByCar/:carId",  FetchAccessoriesByCars)
+
 
 // MOBILE API BELOW
 // TESTING REQUIRED //
@@ -198,7 +205,6 @@ app.post("/addmobileservice", AddMobileService);
 app.post("/addmobilecontact", AddMobileContact);
 app.post("/addmobileinq", AddMobileInquiry);
 app.post("/storeMobileContactInquiry", AddContactInquiry);
-
 
 // fetch Api
 app.get("/fetchMobileBrands", fetchMobileBrands);

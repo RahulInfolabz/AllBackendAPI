@@ -6,21 +6,10 @@ async function AddAccessory(req, res) {
     const db = await ConnectDB();
     const collection = db.collection("Accessories");
 
-    const {
-      brandId,
-      carId,
-      partTypeId,
-      name,
-      price,
-      stock,
-      image,
-      description,
-    } = req.body;
+    const { carId, name, price, stock, image, description } = req.body;
 
     await collection.insertOne({
-      brandId: ObjectId.createFromHexString(brandId),
       carId: ObjectId.createFromHexString(carId),
-      partTypeId: ObjectId.createFromHexString(partTypeId),
       name,
       price,
       stock,
