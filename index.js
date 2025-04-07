@@ -104,6 +104,7 @@ const {
 const {
   FetchSalonPackagesBySerivce,
 } = require("./SALON API/FetchPackagesByService");
+const { AddContactInquiry } = require("./MOBILE API/AddContactUsInquiry");
 
 const app = express();
 app.use(express.json());
@@ -196,6 +197,7 @@ app.post("/addmobileaccessory", AddMobileAccessory);
 app.post("/addmobileservice", AddMobileService);
 app.post("/addmobilecontact", AddMobileContact);
 app.post("/addmobileinq", AddMobileInquiry);
+app.post("/storeMobileContactInquiry", AddContactInquiry);
 
 // fetch Api
 app.get("/fetchMobileBrands", fetchMobileBrands);
