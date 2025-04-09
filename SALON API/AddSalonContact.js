@@ -8,7 +8,7 @@ async function AddSalonContact(req, res) {
     const { name, email, subject, phone, message } = req.body;
 
     if (!name || !email || !subject || !phone || !message) {
-      return res.status(200).json({ message: "All Fields Are Required!" });
+      return res.status(200).json({ success:false, message: "All Fields Are Required!" });
     }
     await collection.insertOne({
       name,
@@ -20,7 +20,7 @@ async function AddSalonContact(req, res) {
       timestamp: new Date(),
     });
 
-    return res.status(200).json({ message: "Contact Inquiry Submitted" });
+    return res.status(200).json({success:true, message: "Contact Inquiry Submitted" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: error.message });
