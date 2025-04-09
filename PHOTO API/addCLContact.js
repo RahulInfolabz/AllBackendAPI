@@ -6,13 +6,14 @@ async function AddCLContact(req,res) {
         const db = await ConnectDB()
         const collection = db.collection("Contact");
 
-        const{name,email,phone,message} = req.body;
+        const{name,email,subject,phone,message} = req.body;
 
         await collection.insertOne(
             {
                 name,
                 email,
                 phone,
+                subject,
                 message,
                 status: "Pending",
                 timestamp: new Date()
