@@ -7,12 +7,14 @@ async function fetchCLCategoryPackages(req, res) {
     const collection = db.collection("Packages");
 
     const { category_id } = req.params;
+    console.log(category_id);
+
     const packages = await collection
       .find({ categoryId: ObjectId.createFromHexString(category_id) })
       .toArray();
 
     if (packages.length > 0) {
-      return res.status(200).json({ message: "Data Fetched", Data: packages });
+      return res.status(200).json({ message: "Data Fetched", packages });
     } else {
       return res.status(404).json({ message: "No Data Found" });
     }
