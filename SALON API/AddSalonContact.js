@@ -7,7 +7,7 @@ async function AddSalonContact(req, res) {
 
     const { name, email, subject, phone, message } = req.body;
 
-    if (!name || !email || !subject || phone || message) {
+    if (!name || !email || !subject || !phone || !message) {
       return res.status(200).json({ message: "All Fields Are Required!" });
     }
     await collection.insertOne({
