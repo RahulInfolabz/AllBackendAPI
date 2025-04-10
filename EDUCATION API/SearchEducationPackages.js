@@ -16,11 +16,16 @@ async function SearchEducationPackages(req, res) {
 
     // Case-insensitive regex filter across relevant fields
     const filter = {
-      $or: [
-        { packageName: { $regex: searchValue, $options: "i" } },
-        { "classDetails.grade": { $regex: searchValue, $options: "i" } },
-        { subjects: { $regex: searchValue, $options: "i" } },
-        { "teachers.name": { $regex: searchValue, $options: "i" } },
+      $and: [
+        { status: "active" },
+        {
+          $or: [
+            { packageName: { $regex: searchValue, $options: "i" } },
+            { "classDetails.grade": { $regex: searchValue, $options: "i" } },
+            { subjects: { $regex: searchValue, $options: "i" } },
+            { "teachers.name": { $regex: searchValue, $options: "i" } },
+          ],
+        },
       ],
     };
 

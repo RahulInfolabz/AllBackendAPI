@@ -8,7 +8,10 @@ async function FetchEducationTeacherDetails(req, res) {
 
     const { teacherId } = req.params;
 
-    const data = await collection.findOne({ _id: new ObjectId(teacherId) });
+    const data = await collection.findOne({
+      _id: new ObjectId(teacherId),
+      status: "Active",
+    });
 
     if (data.length == 0) {
       return res.status(404).json({ message: "No Data Found" });

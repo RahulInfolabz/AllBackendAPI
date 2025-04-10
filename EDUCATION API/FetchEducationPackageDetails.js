@@ -8,7 +8,10 @@ async function FetchEducationPackageDetails(req, res) {
 
     const { packageId } = req.params;
 
-    const data = await collection.findOne({ _id: new ObjectId(packageId) });
+    const data = await collection.findOne({
+      _id: new ObjectId(packageId),
+      status: "Active",
+    });
 
     if (data.length == 0) {
       return res.status(404).json({ message: "No Data Found" });

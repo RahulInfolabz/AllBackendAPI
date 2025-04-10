@@ -9,7 +9,7 @@ async function FetchEducationPackagesByGrade(req, res) {
     const { classId } = req.params;
 
     const data = await collection
-      .find({ "classDetails._id": new ObjectId(classId) })
+      .find({ "classDetails._id": new ObjectId(classId), status: "Active" })
       .toArray();
 
     if (data.length == 0) {

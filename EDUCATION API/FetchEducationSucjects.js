@@ -5,7 +5,7 @@ async function FetchEducationSubjects(req, res) {
     const db = await ConnectDB();
     console.log(db);
     const collection = db.collection("Subjects");
-    const data = await collection.find().toArray();
+    const data = await collection.find({ status: "Active" }).toArray();
 
     if (data.length == 0) {
       return res.status(404).json({ message: "No Data Found" });
