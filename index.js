@@ -66,7 +66,7 @@ const { AddMobile } = require("./MOBILE API/AddMobileDetails");
 const { AddMobileAccessory } = require("./MOBILE API/AddMobileAccessory");
 const { AddMobileService } = require("./MOBILE API/AddMobileServices");
 const { AddMobileContact } = require("./MOBILE API/AddMobileContact");
-const { AddMobileInquiry } = require("./MOBILE API/AddMobileInq");
+const { AddMobileAccessoryInquiry } = require("./MOBILE API/AddMobileInq");
 
 // FETCH
 const { fetchCLPackageDetails } = require("./PHOTO API/fetchCLPackageDetails");
@@ -110,6 +110,7 @@ const { FetchAccessoriesByCars } = require("./CAR API/FetchAccessoriesByCar");
 const {
   fetchAccessoriesByMobiles,
 } = require("./MOBILE API/FetchAccessoriesByMobile");
+const { AddMobileServiceInquiry } = require("./MOBILE API/AddMobileServiceInquiry");
 
 const app = express();
 app.use(express.json());
@@ -205,7 +206,8 @@ app.post("/addmobiledetails", AddMobile);
 app.post("/addmobileaccessory", AddMobileAccessory);
 app.post("/addmobileservice", AddMobileService);
 app.post("/addmobilecontact", AddMobileContact);
-app.post("/addmobileinq", AddMobileInquiry);
+app.post("/addmobileinq", AddMobileAccessoryInquiry);
+app.post("/addmobileserviceinq", AddMobileServiceInquiry);
 app.post("/storeMobileContactInquiry", AddContactInquiry);
 
 // fetch Api

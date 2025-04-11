@@ -1,17 +1,15 @@
 const { ObjectId } = require("mongodb");
 const ConnectDB = require("../DB/m_db_connect");
 
-async function AddMobileAccessoryInquiry(req, res) {
+async function AddMobileServiceInquiry(req, res) {
   try {
     const db = await ConnectDB();
-    const collection = db.collection("AccessoriesInquiry");
+    const collection = db.collection("ServicesInquiry");
 
-    const { name, email, phone, accessoryId, message } = req.body;
+    const { name, email, phone, serviceId, message } = req.body;
 
     await collection.insertOne({
-      accessoryId: accessoryId
-        ? ObjectId.createFromHexString(accessoryId)
-        : null,
+      serviceId: serviceId ? ObjectId.createFromHexString(serviceId) : null,
       name,
       email,
       phone,
@@ -22,11 +20,11 @@ async function AddMobileAccessoryInquiry(req, res) {
 
     return res
       .status(200)
-      .json({ sucess: true, message: "Accessory Inquiry Added !" });
+      .json({ success: true, message: "Service Inquiry Added !" });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ success: false, message: error.message });
   }
 }
 
-module.exports = { AddMobileAccessoryInquiry };
+module.exports = { AddMobileServiceInquiry };
