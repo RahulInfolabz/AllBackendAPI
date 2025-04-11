@@ -10,6 +10,7 @@ async function AddMobileService(req, res) {
       mobileId,
       serviceName,
       serviceType,
+      image,
       brand,
       price,
       description,
@@ -29,6 +30,7 @@ async function AddMobileService(req, res) {
       mobileId: ObjectId.createFromHexString(mobileId),
       serviceName,
       serviceType,
+      image,
       brand,
       price,
       description,
@@ -37,6 +39,7 @@ async function AddMobileService(req, res) {
       estimatedTime,
       serviceCenter,
       officialWebsite,
+      status : "Active"
     });
 
     return res.status(200).json({ message: "Service Added Successfully!" });

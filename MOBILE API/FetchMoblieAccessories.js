@@ -5,7 +5,11 @@ async function fetchMobileAccessories(req, res) {
     const db = await ConnectDB();
     console.log(db);
     const collection = db.collection("MobileAccessories");
-    const accessories = await collection.find().toArray();
+    const accessories = await collection
+      .find({
+        status: "Active",
+      })
+      .toArray();
 
     if (accessories.length == 0) {
       return res.status(404).json({ message: "No Data Found" });

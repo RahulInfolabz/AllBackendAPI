@@ -13,6 +13,7 @@ async function fetchMobilesByBrand(req, res) {
     const mobileDetails = await collection
       .find({
         brandId: ObjectId.createFromHexString(brand_id),
+        status: "Active",
       })
       .toArray();
 

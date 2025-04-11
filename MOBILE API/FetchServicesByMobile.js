@@ -11,6 +11,7 @@ async function fetchServicesByMobiles(req, res) {
     const services = await collection
       .find({
         mobileId: ObjectId.createFromHexString(mobile_id),
+        status: "Active",
       })
       .toArray();
 

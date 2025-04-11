@@ -107,6 +107,9 @@ const { AddContactInquiry } = require("./MOBILE API/AddContactUsInquiry");
 const { FetchCarsByBrands } = require("./CAR API/FetchCarsByBrands");
 const { FetchCarBrands } = require("./CAR API/FetchCarBrands");
 const { FetchAccessoriesByCars } = require("./CAR API/FetchAccessoriesByCar");
+const {
+  fetchAccessoriesByMobiles,
+} = require("./MOBILE API/FetchAccessoriesByMobile");
 
 const app = express();
 app.use(express.json());
@@ -213,7 +216,7 @@ app.get("/fetchMobileServices", fetchMobileServices);
 app.get("/fetchMobileAccessories", fetchMobileAccessories);
 app.get("/fetchMobilesByBrand/:brand_id", fetchMobilesByBrand);
 app.get("/fetchServicesByMobile/:mobile_id", fetchServicesByMobiles);
-
+app.get("/fetchAccessoriesByMobiles/:mobile_id", fetchAccessoriesByMobiles);
 app.listen(port, () => {
   console.log("Server started on port", port);
 });

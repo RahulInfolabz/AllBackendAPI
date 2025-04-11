@@ -4,7 +4,11 @@ async function fetchMobileBrands(req, res) {
   try {
     const db = await ConnectDB();
     const collection = db.collection("Brands");
-    const mobileBrands = await collection.find().toArray();
+    const mobileBrands = await collection
+      .find({
+        status: "Active",
+      })
+      .toArray();
 
     if (mobileBrands.length == 0) {
       return res.status(404).json({ message: "No Data Found" });

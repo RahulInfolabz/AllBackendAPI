@@ -10,6 +10,7 @@ async function fetchMobileDetails(req, res) {
 
     const mobileDetails = await collection.findOne({
       _id: ObjectId.createFromHexString(mobile_id),
+      status: "Active",
     });
 
     if (mobileDetails.length == 0) {

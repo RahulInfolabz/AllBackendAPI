@@ -59,6 +59,7 @@ async function AddMobileAccessory(req, res) {
       availabilityStatus,
       warranty,
       officialWebsite,
+      status : "Active"
     });
 
     return res.status(201).json({ message: "Accessory Added Successfully" });
