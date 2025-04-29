@@ -60,7 +60,7 @@ const { AddCarContact } = require("./CAR API/AddCarContact");
 const { AddCarInquiry } = require("./CAR API/AddCarInq");
 
 // MOBILE
-// 
+//
 //ADD
 const { AddMobileBrand } = require("./MOBILE API/AddMobileBrand");
 const { AddMobile } = require("./MOBILE API/AddMobileDetails");
@@ -111,7 +111,9 @@ const { FetchAccessoriesByCars } = require("./CAR API/FetchAccessoriesByCar");
 const {
   fetchAccessoriesByMobiles,
 } = require("./MOBILE API/FetchAccessoriesByMobile");
-const { AddMobileServiceInquiry } = require("./MOBILE API/AddMobileServiceInquiry");
+const {
+  AddMobileServiceInquiry,
+} = require("./MOBILE API/AddMobileServiceInquiry");
 
 const app = express();
 app.use(express.json());
@@ -121,14 +123,26 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "http://localhost:5173",
-      "http://localhost:5174",
-    ], // Allowed frontend URLs
-    credentials: true, // Allow cookies and sessions to be shared across origins
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:5173",
+        "http://localhost:5174",
+      ];
+
+      if (
+        !origin || // allow non-browser requests like curl, Postman
+        allowedOrigins.includes(origin) ||
+        /https?:\/\/.*\.?onrender\.com$/.test(origin)
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
